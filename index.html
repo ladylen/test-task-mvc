@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="world">
+<html ng-app="countriesCtrl">
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-      <div ng-controller="WorldController as world">
+      <div ng-controller="countriesCtrl as countriesCtrl">
 <!--          Country's table      -->
         <table class="country-table">
             <tr>
@@ -19,12 +19,12 @@
         
 <!--          City's add form       -->
         <form name="reviewForm" title="Enter new city"
-                    ng-submit="reviewForm.$valid && world.addCity(city)" novalidate>
+                    ng-submit="reviewForm.$valid && countriesCtrl.addCity(city)" novalidate>
             <select>
-                <option ng-repeat="country in countries" value="{{world.country.title}}">{{country.title}}</option>
+                <option ng-repeat="country in countries" value="{{countriesCtrl.country.title}}">{{country.title}}</option>
             </select>
-            <input type="edit" ng-model="world.city.title" value="{{world.city.title}}"></input>
-            <input type="edit" ng-model="world.city.desc" value="{{world.city.desc}}"></input>
+            <input type="edit" ng-model="countriesCtrl.city.title" value="{{countriesCtrl.city.title}}"></input>
+            <input type="edit" ng-model="countriesCtrl.city.desc" value="{{countriesCtrl.city.desc}}"></input>
             <input class="add-submit" type="submit" value="Enter!"></input>
         </form>
 
@@ -37,7 +37,7 @@
             <tr ng-repeat="city in cities">
               <td class="city-title"><a href=''>{{city.title}}</a></td>
               <td class="city-desc"><input type="edit" value="{{city.desc}}"></input></td>
-              <td class="rem-submit"><input type="submit" value="Remove" ng-click="world.remCity(city)"></input></td>
+              <td class="rem-submit"><input type="submit" value="Remove" ng-click="countriesCtrl.remCity(city)"></input></td>
             </tr>
         </table>
     </div>

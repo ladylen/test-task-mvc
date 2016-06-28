@@ -2,7 +2,7 @@
 (function() {
   var app = angular.module('world', [ ]);
 
-  app.controller("WorldController", function($scope, $http) {
+  app.controller("contriesCtrl", function($scope, $http) {
       $http.get("countries.json").success(function(response){
           $scope.countries = response;
       });

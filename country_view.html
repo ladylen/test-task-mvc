@@ -1,0 +1,15 @@
+/**
+ * Created by a on 08.07.16.
+ */
+ <!--          Country's table      -->
+        <table class="country-table">
+            <tr>
+                <th>Country</th>
+                <th>Description</th>
+            </tr>
+            <tr ng-repeat="country in countriesCtrl">
+              <td class="title"><a href='' class="country-title">{{country.title}}</a></td>
+              <td class="text"> {{country.text}}</td>
+            </tr>
+        </table>
+

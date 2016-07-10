@@ -1,46 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="countriesCtrl">
+<html ng-app="myApp">
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-      <div ng-controller="countriesCtrl as countriesCtrl">
+      <div ng-controller="CountriesController as couCtrl">
 <!--          Country's table      -->
         <table class="country-table">
             <tr>
                 <th>Country</th>
                 <th>Description</th>
             </tr>
-            <tr ng-repeat="country in countries">
-              <td class="title"><a href='' ng-click='changeShow(country.id)' class="country-title">{{country.title}}</a></td>
+            <tr ng-repeat="country in couCtrl.countries">
+              <td class="title"><a href='' class="country-title">{{country.title}}</a></td>
               <td class="text"> {{country.text}}</td>
+              <td class="text"><button ng-click="couCtrl.showId(country.id)">Show cities</button></td>
             </tr>
         </table>
-        
-<!--          City's add form       -->
-        <form name="reviewForm" title="Enter new city"
-                    ng-submit="reviewForm.$valid && countriesCtrl.addCity(city)" novalidate>
-            <select>
-                <option ng-repeat="country in countries" value="{{countriesCtrl.country.title}}">{{country.title}}</option>
-            </select>
-            <input type="edit" ng-model="countriesCtrl.city.title" value="{{countriesCtrl.city.title}}"></input>
-            <input type="edit" ng-model="countriesCtrl.city.desc" value="{{countriesCtrl.city.desc}}"></input>
-            <input class="add-submit" type="submit" value="Enter!"></input>
-        </form>
 
-<!--          City's table      -->
-        <table class="cities-table">
-            <tr>
-                <th>City</th>
-                <th>Description</th>
-            </tr>
-            <tr ng-repeat="city in cities">
-              <td class="city-title"><a href=''>{{city.title}}</a></td>
-              <td class="city-desc"><input type="edit" value="{{city.desc}}"></input></td>
-              <td class="rem-submit"><input type="submit" value="Remove" ng-click="countriesCtrl.remCity(city)"></input></td>
-            </tr>
-        </table>
-    </div>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="angular-resource.js"></script>
     <script type="text/javascript" src="app.js"></script>

@@ -11,18 +11,23 @@
 	
 	  this.countries = cou;
 	  this.cities = ci;
+	  this.cityTableVis = false;
 
 	  this.showId = function(id){
-	    var list = "Cities: ";
+
+	    // clear City's Table
 	    this.cities.forEach(function(item,i,ci)  {
-	      
+		item.vis = false;
+	    });
+
+	    // show Cities of the selected Country
+	    this.cities.forEach(function(item,i,ci)  {
 	      if(item.country_id == id) {
-		list = list + " "+item.title;
+		item.vis = true;
 	      }
 	    });
-	    alert(list); 
+	    this.cityTableVis = true;
 	  }
-	
   });
   
   var cou = [
@@ -53,43 +58,50 @@
 "id": 1, 
 "country_id": 1, 
 "title": "London", 
-"desc": ""
+"desc": "",
+"vis": false
 },
 {
 "id": 2, 
 "country_id": 1, 
 "title": "Liverpool", 
-"desc": ""
+"desc": "",
+"vis": false
 },
 {
 "id": 3, 
 "country_id": 2, 
 "title": "Paris", 
-"desc": "Go to Paris" 
+"desc": "Go to Paris",
+"vis": false
 },
 {
 "id": 4, 
 "country_id": 3, 
 "title": "Madrid", 
-"desc": "" 
+"desc": "",
+"vis": false
 },
 {
 "id": 5, 
 "country_id": 4, 
 "title": "Berlin", 
-"desc": "" 
+"desc": "",
+"vis": false
 },
 {
 "id": 6, 
 "country_id": 4, 
 "title": "Munich", 
-"desc": "" 
+"desc": "",
+"vis": false
 },
 {
 "id": 7, 
 "country_id": 4, 
 "title": "Hamburg", 
-"desc": "" 
+"desc": "",
+"vis": false
 }
 ];
 

@@ -12,12 +12,21 @@
                 <th>Description</th>
             </tr>
             <tr ng-repeat="country in couCtrl.countries">
-              <td class="title"><a href='' class="country-title">{{country.title}}</a></td>
+              <td class="title"><a href='' class="country-title" ng-click="couCtrl.showId(country.id)">{{country.title}}</a></td>
               <td class="text"> {{country.text}}</td>
-              <td class="text"><button ng-click="couCtrl.showId(country.id)">Show cities</button></td>
             </tr>
         </table>
-
+        <table class="city-table" ng-show="couCtrl.cityTableVis">
+            <tr>
+                <th>City</th>
+                <th>Description</th>
+            </tr>
+            <tr ng-repeat="city in couCtrl.cities">
+              <td class="title"><a href='' class="city-title" ng-show="city.vis">{{city.title}}</a></td>
+              <td class="text" ng-show="city.vis"> {{city.desc}}</td>
+            </tr>
+        </table>        
+      </div>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="angular-resource.js"></script>
     <script type="text/javascript" src="app.js"></script>

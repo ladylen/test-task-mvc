@@ -1,4 +1,6 @@
-[{
+{
+"cities":[
+{
 "id": 1, 
 "country_id": 1, 
 "title": "London", 
@@ -41,3 +43,4 @@
 "desc": "" 
 }
 ]
+}

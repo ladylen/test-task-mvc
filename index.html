@@ -12,7 +12,7 @@
                 <th>Description</th>
             </tr>
             <tr ng-repeat="country in couCtrl.countries">
-              <td class="title"><a href='' class="country-title" ng-click="couCtrl.showId(country.id)">{{country.title}}</a></td>
+              <td class="title"><a href='' class="country-title" ng-click="couCtrl.showCities(country.id)">{{country.title}}</a></td>
               <td class="text"> {{country.text}}</td>
             </tr>
         </table>
@@ -20,12 +20,22 @@
             <tr>
                 <th>City</th>
                 <th>Description</th>
+                <th>Delete</th>
             </tr>
             <tr ng-repeat="city in couCtrl.cities">
               <td class="title"><a href='' class="city-title" ng-show="city.vis">{{city.title}}</a></td>
               <td class="text" ng-show="city.vis"> {{city.desc}}</td>
+              <td class="button" ng-show="city.vis"><button ng-click="couCtrl.remCity(city)">Delete</button></td>
             </tr>
-        </table>        
+        </table>
+        <form name="addNewCity" ng-show="couCtrl.cityTableVis">
+            <select>
+                <option ng-repeat="country in couCtrl.countries" value="{{country.title}}">{{country.title}}</option>
+            </select>
+            <input type="edit" name="addCityTitle" value="City Title">
+            <input type="edit" name="addCityDesc" value="City Description">
+            <button class="add-submit" ng-click="addCity()">Adding</button>
+        </form>
       </div>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="angular-resource.js"></script>

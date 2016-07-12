@@ -13,7 +13,8 @@
 	  this.cities = ci;
 	  this.cityTableVis = false;
 
-	  this.showId = function(id){
+	  // show Cities of the selected Country
+	  this.showCities = function(id){
 
 	    // clear City's Table
 	    this.cities.forEach(function(item,i,ci)  {
@@ -28,6 +29,18 @@
 	    });
 	    this.cityTableVis = true;
 	  }
+
+	 // Delete the City
+	 this.remCity = function(city) {
+           var array = this.cities;
+	    array.forEach(function(item,i,ci){
+
+ 	    if(item === city) {
+ 	      array.splice(i,1);
+ 	    }
+	  });
+	    this.cities = array; // na vsiakiy sluchay
+	 }	  
   });
   
   var cou = [

@@ -23,18 +23,24 @@
                 <th>Delete</th>
             </tr>
             <tr ng-repeat="city in couCtrl.cities">
-              <td class="title"><a href='' class="city-title" ng-show="city.vis">{{city.title}}</a></td>
-              <td class="text" ng-show="city.vis"> {{city.desc}}</td>
+              <td class="title" class="city-title" ng-show="city.vis">{{city.title}}</td>
+              <td class="text" ng-show="city.vis"><textarea> {{city.desc}}</textarea></td>
               <td class="button" ng-show="city.vis"><button ng-click="couCtrl.remCity(city)">Delete</button></td>
             </tr>
         </table>
-        <form name="addNewCity" ng-show="couCtrl.cityTableVis">
-            <select>
-                <option ng-repeat="country in couCtrl.countries" value="{{country.title}}">{{country.title}}</option>
+        <form name="addNewCity" ng-submit="couCtrl.addCity(ci, cou.title)" novalidate>
+            <blockquote>
+                <b>Country:</b> {{cou.title}}<br/>
+                <b>City:</b> {{ci.title}}<br/>
+                <b>Description:</b> {{ci.desc}}<br/>
+            </blockquote>
+            <select ng-model="cou.title" required>
+                <option ng-repeat="country in couCtrl.countries" value="{{country.id}}">{{country.title}}</option>
             </select>
-            <input type="edit" name="addCityTitle" value="City Title">
-            <input type="edit" name="addCityDesc" value="City Description">
-            <button class="add-submit" ng-click="addCity()">Adding</button>
+            <input type="edit" ng-model="ci.title" name="addCityTitle" required>
+            <textarea value="City Description" ng-model="ci.desc" name="addCityDesc"></textarea>
+            <input type="hidden" ng-model="cou.title">
+            <input type="submit" class="add-submit" value="Add">
         </form>
       </div>
     <script type="text/javascript" src="angular.min.js"></script>
